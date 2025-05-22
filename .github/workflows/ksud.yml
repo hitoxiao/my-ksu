@@ -1,6 +1,23 @@
 name: Build ksud
 on:
   workflow_dispatch:
+    inputs:
+      target:
+        required: true
+        type: string
+        default: aarch64-linux-android
+      os:
+        required: false
+        type: string
+        default: ubuntu-latest
+      pack_lkm:
+        required: false
+        type: boolean
+        default: false
+      use_cache:
+        required: false
+        type: boolean
+        default: true
   workflow_call:
     inputs:
       target:
