@@ -1,10 +1,12 @@
 name: Build ksud
 on:
+  workflow_dispatch:
   workflow_call:
     inputs:
       target:
         required: true
         type: string
+        default: aarch64-linux-android
       os:
         required: false
         type: string
@@ -12,11 +14,12 @@ on:
       pack_lkm:
         required: false
         type: boolean
-        default: true
+        default: false
       use_cache:
         required: false
         type: boolean
         default: true
+  
 jobs:
   build:
     runs-on: ${{ inputs.os }}
